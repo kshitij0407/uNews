@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "GeoNewsFinder4",
+    "slug": "GeoNewsFinder4",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "plugins": [
+        "./ios-build-plugin.js"
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "config": {
+        "googleMapsApiKey": "AIzaSyBzqOAEFXewORNVWDH8UKRueMF9boPygbs"
+      },
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.GeoNewsFinder4"
+    },
+    "android": {
+      "config": {
+        "googleMapsApiKey": "AIzaSyBzqOAEFXewORNVWDH8UKRueMF9boPygbs"
+      },
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.GeoNewsFinder4"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

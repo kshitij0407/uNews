@@ -1,0 +1,347 @@
+{
+  "api": {
+    "articlesApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getArticlesFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "testAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "testFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "geonewsfinder4": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "function": {
+    "getArticlesFunction": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "testFunction": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "testDB"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_geonewsfinder4_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_auth_geonewsfinder4_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "geonewsfinder4"
+        }
+      ]
+    },
+    "AMPLIFY_function_getArticlesFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getArticlesFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_getArticlesFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getArticlesFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_getArticles_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getArticles"
+        }
+      ]
+    },
+    "AMPLIFY_function_getArticles_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getArticles"
+        }
+      ]
+    },
+    "AMPLIFY_function_testFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_testFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testFunction"
+        }
+      ]
+    },
+    "AMPLIFY_storage_demoarticlescontent_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ]
+    },
+    "AMPLIFY_storage_demoarticlescontent_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ]
+    },
+    "AMPLIFY_storage_demoarticlescontent_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ]
+    },
+    "AMPLIFY_storage_demoarticlescontent_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ]
+    },
+    "AMPLIFY_storage_demoarticlescontent_streamArn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ]
+    },
+    "AMPLIFY_storage_demoarticlescontent_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "demoarticlescontent"
+        }
+      ]
+    },
+    "AMPLIFY_storage_geonewsfinder446f29e16_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "geonewsfinder446f29e16"
+        }
+      ]
+    },
+    "AMPLIFY_storage_geonewsfinder446f29e16_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "geonewsfinder446f29e16"
+        }
+      ]
+    },
+    "AMPLIFY_storage_userprefs_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "userprefs"
+        }
+      ]
+    },
+    "AMPLIFY_storage_userprefs_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "userprefs"
+        }
+      ]
+    },
+    "AMPLIFY_storage_userprefs_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "userprefs"
+        }
+      ]
+    },
+    "AMPLIFY_storage_userprefs_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "userprefs"
+        }
+      ]
+    },
+    "AMPLIFY_storage_userprefs_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "userprefs"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "demoarticlescontent": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    },
+    "geonewsfinder446f29e16": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "serviceType": "imported"
+    },
+    "testDB": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "userprefs": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    }
+  }
+}
